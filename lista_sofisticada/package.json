@@ -1,0 +1,23 @@
+{
+  "name": "lista_sofisticada",
+  "version": "2024.1.0",
+  "description": "Faz um bloco de lista sofisticada no qual pode-se colocar outras listas dentro.",
+  "author": "Rodrigo Diniz da Silva",
+  "license": "GPL-2.0",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "start": "wp-scripts start"
+  },
+  "dependencies": {
+    "@wordpress/icons": "^10.10.0"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.7.0"
+  }
+}

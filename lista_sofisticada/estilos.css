@@ -1,0 +1,16 @@
+/* Ícone do Menu */
+#toplevel_page_pagina_de_configuracoes_do_plugin_lista_sofisticada:hover .wp-menu-image{
+  padding: 9px 8px;
+  width: 20px;
+  height: 20px;
+  content: url("Imagens/Ícone do Menu 20x20 - Hover.png");
+}
+#toplevel_page_pagina_de_configuracoes_do_plugin_lista_sofisticada.current .wp-menu-image>img{
+  opacity: 1;
+}
+#toplevel_page_pagina_de_configuracoes_do_plugin_lista_sofisticada.current:hover .wp-menu-image{
+  padding: 9px 8px;
+  width: 20px;
+  height: 20px;
+  content: url("Imagens/Ícone do Menu 20x20.png");
+}

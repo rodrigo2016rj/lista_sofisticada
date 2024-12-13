@@ -1,0 +1,179 @@
+/* Lista */
+.lista_editavel{
+  border: 1px solid black;
+  min-height: 200px;
+  font-size: 12pt;
+}
+
+/* Opções e título da lista */
+.lista_editavel .opcoes_e_titulo_da_lista{
+  border-bottom: 1px solid black;
+  padding: 10px 3px 1px 3px;
+  background-color: #D0D0D0;
+}
+.lista_editavel .opcoes_e_titulo_da_lista>*{
+  display: inline-block;
+  vertical-align: middle;
+}
+.lista_editavel .opcoes_e_titulo_da_lista>.opcoes_mover{
+  margin-top: -32px;
+  max-height: 24px;
+}
+.lista_editavel .opcoes_e_titulo_da_lista>.opcoes_mover>*{
+  max-height: 24px;
+}
+.lista_editavel .opcoes_e_titulo_da_lista>.opcoes_mover>.opcao_mover_para_cima{
+  cursor: pointer;
+}
+.lista_editavel .opcoes_e_titulo_da_lista>.opcoes_mover>.opcao_mover_para_cima>svg:hover{
+  border-radius: 20px;
+  background-color: #FFF;
+  filter: invert(1) brightness(0.65) sepia(1) hue-rotate(19deg) saturate(2.6) invert(1);
+}
+.lista_editavel .opcoes_e_titulo_da_lista>.opcoes_mover>.opcao_mover_para_baixo{
+  cursor: pointer;
+}
+.lista_editavel .opcoes_e_titulo_da_lista>.opcoes_mover>.opcao_mover_para_baixo>svg:hover{
+  border-radius: 20px;
+  background-color: #FFF;
+  filter: invert(1) brightness(0.65) sepia(1) hue-rotate(19deg) saturate(2.6) invert(1);
+}
+.lista_editavel .opcoes_e_titulo_da_lista>.opcao_remover{
+  cursor: pointer;
+}
+.lista_editavel .opcoes_e_titulo_da_lista>.opcao_remover>svg:hover{
+  filter: invert(1) brightness(0.65) sepia(1) hue-rotate(122deg) saturate(2.6) invert(1);
+}
+.lista_editavel .local_do_titulo_da_lista{
+  min-width: calc(100% - 2 * 24px);
+  max-width: calc(100% - 2 * 24px);
+}
+
+/* Opções e texto do item simples */
+.lista_editavel .opcoes_e_texto_do_item_simples{
+  padding: 10px 3px 1px 3px;
+  background-color: #D0D0D0;
+}
+.lista_editavel .opcoes_e_texto_do_item_simples>*{
+  display: inline-block;
+  vertical-align: middle;
+}
+.lista_editavel .opcoes_e_texto_do_item_simples>.opcoes_mover{
+  margin-top: -32px;
+  max-height: 24px;
+}
+.lista_editavel .opcoes_e_texto_do_item_simples>.opcoes_mover>*{
+  max-height: 24px;
+}
+.lista_editavel .opcoes_e_texto_do_item_simples>.opcoes_mover>.opcao_mover_para_cima{
+  cursor: pointer;
+}
+.lista_editavel .opcoes_e_texto_do_item_simples>.opcoes_mover>.opcao_mover_para_cima>svg:hover{
+  border-radius: 20px;
+  background-color: #FFF;
+  filter: invert(1) brightness(0.65) sepia(1) hue-rotate(19deg) saturate(2.6) invert(1);
+}
+.lista_editavel .opcoes_e_texto_do_item_simples>.opcoes_mover>.opcao_mover_para_baixo{
+  cursor: pointer;
+}
+.lista_editavel .opcoes_e_texto_do_item_simples>.opcoes_mover>.opcao_mover_para_baixo>svg:hover{
+  border-radius: 20px;
+  background-color: #FFF;
+  filter: invert(1) brightness(0.65) sepia(1) hue-rotate(19deg) saturate(2.6) invert(1);
+}
+.lista_editavel .opcoes_e_texto_do_item_simples>.opcao_remover{
+  cursor: pointer;
+}
+.lista_editavel .opcoes_e_texto_do_item_simples>.opcao_remover>svg:hover{
+  filter: invert(1) brightness(0.65) sepia(1) hue-rotate(122deg) saturate(2.6) invert(1);
+}
+.lista_editavel .local_do_texto_do_item{
+  min-width: calc(100% - 2 * 24px);
+  max-width: calc(100% - 2 * 24px);
+}
+
+/* Menu Remoção */
+.lista_editavel .menu_remocao{
+  position: absolute;
+  left: 100%;
+  margin-top: 3px;
+  min-width: 180px;
+}
+.lista_editavel .botoes_da_remocao{
+  text-align: center;
+}
+.lista_editavel .botao_remover_item{
+  font-size: 13pt;
+}
+.lista_editavel .botao_cancelar_remocao{
+  margin-left: 12px;
+  font-size: 13pt;
+}
+
+/* Opção de adição */
+.lista_editavel .opcao_adicionar_item{
+  color: #2020D0;
+}
+.lista_editavel .opcao_adicionar_item>.icone_e_texto_da_opcao{
+  padding: 8px 0px;
+  text-align: center;
+  cursor: pointer;
+}
+.lista_editavel .opcao_adicionar_item>.icone_e_texto_da_opcao:hover{
+  background-color: #D0D0FD;
+}
+.lista_editavel .opcao_adicionar_item>.icone_e_texto_da_opcao>*{
+  display: inline-block;
+  vertical-align: middle;
+}
+.lista_editavel .opcao_adicionar_item>.icone_e_texto_da_opcao>svg{
+  position: relative;
+  top: -1px;
+  //filter: invert(1) brightness(0.65) sepia(1) hue-rotate(20deg) saturate(3.2) invert(1); //Mais próximo de #2020D0
+  filter: invert(1) brightness(0.55) sepia(1) hue-rotate(22deg) saturate(3) invert(1);
+  //Mais harmonioso com #2020D0
+}
+.lista_editavel .menu_adicao{
+  margin-bottom: 9px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid blue;
+  padding: 14px;
+  min-width: calc(400px - 2px - 28px);
+  max-width: calc(400px - 2px - 28px);
+  background-color: #FFF;
+  color: black;
+  text-align: center;
+  z-index: 9999;
+}
+.lista_editavel .pergunta_da_adicao{
+  font-size: 16pt;
+}
+.lista_editavel .botoes_da_adicao{
+  margin-top: 60px;
+  text-align: center;
+}
+.lista_editavel .botao_adicionar_lista{
+  font-size: 13pt;
+}
+.lista_editavel .botao_adicionar_item_simples{
+  margin-left: 20px;
+  font-size: 13pt;
+}
+.lista_editavel .botao_cancelar_adicao{
+  margin-left: 20px;
+  font-size: 13pt;
+}
+
+/* Conteúdo da lista */
+.lista_editavel .conteudo_da_lista{
+  padding: 0px 10px;
+}
+.lista_editavel .item_simples{
+  border: 1px solid black;
+}
+
+/* Melhorando estilos do WordPress */
+.lista_editavel .components-text-control__input{
+  font-size: 12pt !important;
+}
