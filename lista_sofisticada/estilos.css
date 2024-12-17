@@ -3,7 +3,7 @@
   padding: 9px 8px;
   width: 20px;
   height: 20px;
-  content: url("Imagens/Ícone do Menu 20x20 - Hover.png");
+  content: url("Imagens/icone_do_menu_20x20_hover.png");
 }
 #toplevel_page_pagina_de_configuracoes_do_plugin_lista_sofisticada.current .wp-menu-image>img{
   opacity: 1;
@@ -12,5 +12,5 @@
   padding: 9px 8px;
   width: 20px;
   height: 20px;
-  content: url("Imagens/Ícone do Menu 20x20.png");
+  content: url("Imagens/icone_do_menu_20x20.png");
 }

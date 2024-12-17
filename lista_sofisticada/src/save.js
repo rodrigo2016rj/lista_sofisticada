@@ -44,7 +44,7 @@ export default function save({className, attributes: attr, setAttributes}){
         <div className="local_do_titulo_da_lista">
           {html_do_titulo_da_lista}
         </div>
-        <div id={"opcao_encolher_"+identificador} className="opcao_encolher" 
+        <div id={"opcao_encolher_"+identificador} className="opcao_encolher tag_oculta" 
              title="Encolher">
           <Icon icon={caption}/>
         </div>
