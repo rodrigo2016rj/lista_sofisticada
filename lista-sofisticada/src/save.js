@@ -10,13 +10,8 @@ export default function save({className, attributes: attr, setAttributes}){
     return;
   }
   
-  let identificador = 0;
-  
   function processamento_de_listas(lista, aninhamento){
     const elementos_react = Array();
-    
-    identificador++;
-    const backup_do_identificador = identificador;
     
     if(aninhamento === "impar"){
       aninhamento = "par";
@@ -44,12 +39,10 @@ export default function save({className, attributes: attr, setAttributes}){
         <div className="local_do_titulo_da_lista">
           {html_do_titulo_da_lista}
         </div>
-        <div id={"opcao_encolher_"+identificador} className="opcao_encolher tag_oculta" 
-             title="Encolher">
+        <div className="opcao_encolher tag_oculta" title="Encolher">
           <Icon icon={caption}/>
         </div>
-        <div id={"opcao_expandir_"+identificador} className="opcao_expandir tag_oculta" 
-             title="Expandir">
+        <div className="opcao_expandir tag_oculta" title="Expandir">
           <Icon icon={page}/>
         </div>
       </div>
@@ -89,7 +82,7 @@ export default function save({className, attributes: attr, setAttributes}){
       }
     }
     elementos_react.push(
-      <div id={"conteudo_"+backup_do_identificador} className="conteudo_da_lista">
+      <div className="conteudo_da_lista">
         {elementos_react_do_conteudo}
       </div>
     );

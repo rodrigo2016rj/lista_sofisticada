@@ -1,5 +1,9 @@
 <?php
 
+if(!defined('ABSPATH')){
+  exit; //Sai se acessado diretamente
+}
+
 $visual = $attributes['visual'];
 $visual_configurado = $attributes['visual_configurado'];
 
