@@ -4,7 +4,7 @@
  * Description:       Faz um bloco de lista sofisticada no qual pode-se colocar outras listas dentro.
  * Requires at least: 6.6
  * Requires PHP:      8.3
- * Version:           2025.1
+ * Version:           2025.2
  * Author:            Rodrigo Diniz da Silva
  * Copyright:         2024
  * License:           GPL-2.0
@@ -30,7 +30,7 @@ function pluginListaSofisticada_ativar(){
 
 function pluginListaSofisticada_criar_bloco_lista_sofisticada(){
   wp_register_style('pluginListaSofisticada_estilos', plugins_url('estilos.css', __FILE__),
-  array(), '2024-12-13 16h43');
+  array(), '2025-01-01 21h23');
   wp_enqueue_style('pluginListaSofisticada_estilos');
 
   $visual_da_lista_sofisticada = get_option('pluginListaSofisticada_visual_da_lista');
@@ -87,7 +87,7 @@ function pluginListaSofisticada_validar_visual_escolhido($visual_escolhido){
       $visual_escolhido = 'visual_padrao';
       break;
   }
-  return $visual_escolhido;
+  return sanitize_key($visual_escolhido);
 }
 
 function pluginListaSofisticada_desativar(){
@@ -137,66 +137,66 @@ function pluginListaSofisticada_html_dos_botoes_de_radio_do_visual(){
 
   echo
   '<input id="botao_de_radio_visual_padrao" name="pluginListaSofisticada_visual_da_lista" 
-            type="radio" value="visual_padrao"'
+          type="radio" value="visual_padrao"'
   .esc_attr($estado_do_botao_de_radio_visual_padrao).'/>'
   .'<label for="botao_de_radio_visual_padrao">Visual Padrão</label>'
   .'<br/>'
-  .'<img src="../wp-content/plugins/lista-sofisticada/imagens/visual_padrao.png"
-           alt="visual_padrao.png"/>'
+  .'<img src="'.esc_url(plugin_dir_url(__FILE__).'imagens/visual_padrao.png').'"
+         alt="visual_padrao.png"/>'
   .'<br/>'
   .'<br/>'
   .'<input id="botao_de_radio_visual_azul_metalico" name="pluginListaSofisticada_visual_da_lista" 
-             type="radio" value="visual_azul_metalico"'
+           type="radio" value="visual_azul_metalico"'
   .esc_attr($estado_do_botao_de_radio_visual_azul_metalico).'/>'
   .'<label for="botao_de_radio_visual_azul_metalico">Visual Azul Metálico</label>'
   .'<br/>'
-  .'<img src="../wp-content/plugins/lista-sofisticada/imagens/visual_azul_metalico.png"
-           alt="visual_azul_metalico.png"/>'
+  .'<img src="'.esc_url(plugin_dir_url(__FILE__).'imagens/visual_azul_metalico.png').'"
+         alt="visual_azul_metalico.png"/>'
   .'<br/>'
   .'<br/>'
   .'<input id="botao_de_radio_visual_citrico" name="pluginListaSofisticada_visual_da_lista" 
-             type="radio" value="visual_citrico"'
+           type="radio" value="visual_citrico"'
   .esc_attr($estado_do_botao_de_radio_visual_citrico).'/>'
   .'<label for="botao_de_radio_visual_citrico">Visual Cítrico</label>'
   .'<br/>'
-  .'<img src="../wp-content/plugins/lista-sofisticada/imagens/visual_citrico.png" 
-           alt="visual_citrico.png"/>'
+  .'<img src="'.esc_url(plugin_dir_url(__FILE__).'imagens/visual_citrico.png').'"
+         alt="visual_citrico.png"/>'
   .'<br/>'
   .'<br/>'
   .'<input id="botao_de_radio_visual_azul_suave" name="pluginListaSofisticada_visual_da_lista" 
-             type="radio" value="visual_azul_suave"'
+           type="radio" value="visual_azul_suave"'
   .esc_attr($estado_do_botao_de_radio_visual_azul_suave).'/>'
   .'<label for="botao_de_radio_visual_azul_suave">Visual Azul Suave</label>'
   .'<br/>'
-  .'<img src="../wp-content/plugins/lista-sofisticada/imagens/visual_azul_suave.png" 
-           alt="visual_azul_suave.png"/>'
+  .'<img src="'.esc_url(plugin_dir_url(__FILE__).'imagens/visual_azul_suave.png').'"
+         alt="visual_azul_suave.png"/>'
   .'<br/>'
   .'<br/>'
   .'<input id="botao_de_radio_visual_azul_destaque" name="pluginListaSofisticada_visual_da_lista" 
-             type="radio" value="visual_azul_destaque"'
+           type="radio" value="visual_azul_destaque"'
   .esc_attr($estado_do_botao_de_radio_visual_azul_destaque).'/>'
   .'<label for="botao_de_radio_visual_azul_destaque">Visual Azul Destaque</label>'
   .'<br/>'
-  .'<img src="../wp-content/plugins/lista-sofisticada/imagens/visual_azul_destaque.png" 
-           alt="visual_azul_destaque.png"/>'
+  .'<img src="'.esc_url(plugin_dir_url(__FILE__).'imagens/visual_azul_destaque.png').'"
+         alt="visual_azul_destaque.png"/>'
   .'<br/>'
   .'<br/>'
   .'<input id="botao_de_radio_visual_purpura_destaque" name="pluginListaSofisticada_visual_da_lista" 
-             type="radio" value="visual_purpura_destaque"'
+           type="radio" value="visual_purpura_destaque"'
   .esc_attr($estado_do_botao_de_radio_visual_purpura_destaque).'/>'
   .'<label for="botao_de_radio_visual_purpura_destaque">Visual Púrpura Destaque</label>'
   .'<br/>'
-  .'<img src="../wp-content/plugins/lista-sofisticada/imagens/visual_purpura_destaque.png" 
-           alt="visual_purpura_destaque.png"/>'
+  .'<img src="'.esc_url(plugin_dir_url(__FILE__).'imagens/visual_purpura_destaque.png').'"
+         alt="visual_purpura_destaque.png"/>'
   .'<br/>'
   .'<br/>'
   .'<input id="botao_de_radio_visual_escuro" name="pluginListaSofisticada_visual_da_lista" 
-             type="radio" value="visual_escuro"'
+           type="radio" value="visual_escuro"'
   .esc_attr($estado_do_botao_de_radio_visual_escuro).'/>'
   .'<label for="botao_de_radio_visual_escuro">Visual Escuro</label>'
   .'<br/>'
-  .'<img src="../wp-content/plugins/lista-sofisticada/imagens/visual_escuro.png" 
-           alt="visual_escuro.png"/>'
+  .'<img src="'.esc_url(plugin_dir_url(__FILE__).'imagens/visual_escuro.png').'"
+         alt="visual_escuro.png"/>'
   ;
 }
 
