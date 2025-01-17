@@ -4,7 +4,7 @@
  * Description:       Faz um bloco de lista sofisticada no qual pode-se colocar outras listas dentro.
  * Requires at least: 6.6
  * Requires PHP:      8.3
- * Version:           2025.2
+ * Version:           2025.3
  * Author:            Rodrigo Diniz da Silva
  * Copyright:         2024
  * License:           GPL-2.0
@@ -76,6 +76,8 @@ function pluginListaSofisticada_adicionar_item_para_o_menu_principal(){
 function pluginListaSofisticada_validar_visual_escolhido($visual_escolhido){
   switch($visual_escolhido){
     case 'visual_padrao':
+    case 'visual_sofisticado':
+    case 'visual_sofisticado_escuro':
     case 'visual_azul_metalico':
     case 'visual_citrico':
     case 'visual_azul_suave':
@@ -105,6 +107,8 @@ function pluginListaSofisticada_html_dos_botoes_de_radio_do_visual(){
   $visual_da_lista_sofisticada = get_option('pluginListaSofisticada_visual_da_lista');
 
   $estado_do_botao_de_radio_visual_padrao = '';
+  $estado_do_botao_de_radio_visual_sofisticado = '';
+  $estado_do_botao_de_radio_visual_sofisticado_escuro = '';
   $estado_do_botao_de_radio_visual_azul_metalico = '';
   $estado_do_botao_de_radio_visual_citrico = '';
   $estado_do_botao_de_radio_visual_azul_suave = '';
@@ -114,6 +118,12 @@ function pluginListaSofisticada_html_dos_botoes_de_radio_do_visual(){
   switch($visual_da_lista_sofisticada){
     case 'visual_padrao':
       $estado_do_botao_de_radio_visual_padrao = ' checked="checked"';
+      break;
+    case 'visual_sofisticado':
+      $estado_do_botao_de_radio_visual_sofisticado = ' checked="checked"';
+      break;
+    case 'visual_sofisticado_escuro':
+      $estado_do_botao_de_radio_visual_sofisticado_escuro = ' checked="checked"';
       break;
     case 'visual_azul_metalico':
       $estado_do_botao_de_radio_visual_azul_metalico = ' checked="checked"';
@@ -143,6 +153,24 @@ function pluginListaSofisticada_html_dos_botoes_de_radio_do_visual(){
   .'<br/>'
   .'<img src="'.esc_url(plugin_dir_url(__FILE__).'imagens/visual_padrao.png').'"
          alt="visual_padrao.png"/>'
+  .'<br/>'
+  .'<br/>'
+  .'<input id="botao_de_radio_visual_sofisticado" name="pluginListaSofisticada_visual_da_lista" 
+          type="radio" value="visual_sofisticado"'
+  .esc_attr($estado_do_botao_de_radio_visual_sofisticado).'/>'
+  .'<label for="botao_de_radio_visual_sofisticado">Visual Sofisticado</label>'
+  .'<br/>'
+  .'<img src="'.esc_url(plugin_dir_url(__FILE__).'imagens/visual_sofisticado.png').'"
+         alt="visual_sofisticado.png"/>'
+  .'<br/>'
+  .'<br/>'
+  .'<input id="botao_de_radio_visual_sofisticado_escuro" name="pluginListaSofisticada_visual_da_lista" 
+          type="radio" value="visual_sofisticado_escuro"'
+  .esc_attr($estado_do_botao_de_radio_visual_sofisticado_escuro).'/>'
+  .'<label for="botao_de_radio_visual_sofisticado_escuro">Visual Sofisticado Escuro</label>'
+  .'<br/>'
+  .'<img src="'.esc_url(plugin_dir_url(__FILE__).'imagens/visual_sofisticado_escuro.png').'"
+         alt="visual_sofisticado_escuro.png"/>'
   .'<br/>'
   .'<br/>'
   .'<input id="botao_de_radio_visual_azul_metalico" name="pluginListaSofisticada_visual_da_lista" 
