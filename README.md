@@ -9,6 +9,7 @@ Itens de texto;<br/>
 Listas internas;<br/>
 Links.</p>
 
-<p>Há vários layouts disponíveis que podem ser escolhidos pelo menu "Opções do Plugin Lista Sofisticada". Este menu é criado automaticamente ao instalar este plugin.</p>
+<p>Há vários layouts disponíveis que podem ser escolhidos pelo menu "Opções do Plugin Lista Sofisticada".<br/>
+O menu é criado automaticamente ao instalar este plugin.</p>
 
 <br/>

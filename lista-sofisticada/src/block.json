@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "create-block/lista-sofisticada",
-  "version": "2025.3",
+  "version": "2025.4",
   "title": "Lista Sofisticada",
   "category": "text",
   "icon": "list-view",
