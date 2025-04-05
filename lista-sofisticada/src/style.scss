@@ -65,7 +65,12 @@
 .lista.visual_sofisticado .item_simples:last-child{
   border-bottom: none;
 }
-.lista.visual_sofisticado .item_simples:hover{
+.lista.visual_sofisticado .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
+.lista.visual_sofisticado .item_simples:hover,
+.lista.visual_sofisticado .mensagem_de_lista_vazia:hover{
   background-color: #DDF0F0;
 }
 .lista.visual_sofisticado .item_simples>.local_do_texto_do_item>a{
@@ -143,7 +148,12 @@
 .lista.visual_sofisticado_azul_metalico .item_simples:last-child{
   border-bottom: none;
 }
-.lista.visual_sofisticado_azul_metalico .item_simples:hover{
+.lista.visual_sofisticado_azul_metalico .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
+.lista.visual_sofisticado_azul_metalico .item_simples:hover,
+.lista.visual_sofisticado_azul_metalico .mensagem_de_lista_vazia:hover{
   background-color: #FDFDD8;
 }
 .lista.visual_sofisticado_azul_metalico .item_simples>.local_do_texto_do_item>a{
@@ -221,7 +231,12 @@
 .lista.visual_sofisticado_citrico .item_simples:last-child{
   border-bottom: none;
 }
-.lista.visual_sofisticado_citrico .item_simples:hover{
+.lista.visual_sofisticado_citrico .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
+.lista.visual_sofisticado_citrico .item_simples:hover,
+.lista.visual_sofisticado_citrico .mensagem_de_lista_vazia:hover{
   background-color: #E0E0F2;
 }
 .lista.visual_sofisticado_citrico .item_simples>.local_do_texto_do_item>a{
@@ -302,6 +317,10 @@
 .lista.visual_sofisticado_azul_suave .item_simples:last-child{
   padding-bottom: 7px;
 }
+.lista.visual_sofisticado_azul_suave .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
 .lista.visual_sofisticado_azul_suave .item_simples>.local_do_texto_do_item>a{
   color: #0028C8;
   text-decoration: none;
@@ -377,7 +396,12 @@
 .lista.visual_sofisticado_azul_destaque .item_simples:last-child{
   padding-bottom: 7px;
 }
-.lista.visual_sofisticado_azul_destaque .item_simples:hover{
+.lista.visual_sofisticado_azul_destaque .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
+.lista.visual_sofisticado_azul_destaque .item_simples:hover,
+.lista.visual_sofisticado_azul_destaque .mensagem_de_lista_vazia:hover{
   background-color: #D0D0F0;
 }
 .lista.visual_sofisticado_azul_destaque .item_simples>.local_do_texto_do_item>a{
@@ -455,7 +479,12 @@
 .lista.visual_sofisticado_purpura_destaque .item_simples:last-child{
   padding-bottom: 7px;
 }
-.lista.visual_sofisticado_purpura_destaque .item_simples:hover{
+.lista.visual_sofisticado_purpura_destaque .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
+.lista.visual_sofisticado_purpura_destaque .item_simples:hover,
+.lista.visual_sofisticado_purpura_destaque .mensagem_de_lista_vazia:hover{
   background-color: #F6DDF6;
 }
 .lista.visual_sofisticado_purpura_destaque .item_simples>.local_do_texto_do_item>a{
@@ -539,7 +568,13 @@
 .lista.visual_sofisticado_escuro .item_simples:last-child{
   padding-bottom: 7px;
 }
-.lista.visual_sofisticado_escuro .item_simples:hover{
+.lista.visual_sofisticado_escuro .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #262626;
+  color: #FFF;
+}
+.lista.visual_sofisticado_escuro .item_simples:hover,
+.lista.visual_sofisticado_escuro .mensagem_de_lista_vazia:hover{
   background-color: #FFF;
   color: #000;
 }
@@ -633,7 +668,12 @@
 .lista.visual_padrao .item_simples:first-child{
   border-top: none;
 }
-.lista.visual_padrao .item_simples:hover{
+.lista.visual_padrao .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
+.lista.visual_padrao .item_simples:hover,
+.lista.visual_padrao .mensagem_de_lista_vazia:hover{
   background-color: #DDF0F0;
 }
 .lista.visual_padrao .item_simples>.local_do_texto_do_item>a{
@@ -713,7 +753,12 @@
 .lista.visual_azul_metalico .item_simples:first-child{
   border-top: none;
 }
-.lista.visual_azul_metalico .item_simples:hover{
+.lista.visual_azul_metalico .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
+.lista.visual_azul_metalico .item_simples:hover,
+.lista.visual_azul_metalico .mensagem_de_lista_vazia:hover{
   background-color: #FDFDD8;
 }
 .lista.visual_azul_metalico .item_simples>.local_do_texto_do_item>a{
@@ -793,7 +838,12 @@
 .lista.visual_citrico .item_simples:first-child{
   border-top: none;
 }
-.lista.visual_citrico .item_simples:hover{
+.lista.visual_citrico .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
+.lista.visual_citrico .item_simples:hover,
+.lista.visual_citrico .mensagem_de_lista_vazia:hover{
   background-color: #E0E0F2;
 }
 .lista.visual_citrico .item_simples>.local_do_texto_do_item>a{
@@ -876,6 +926,10 @@
 .lista.visual_azul_suave .item_simples:first-child{
   padding: 7px 11px;
 }
+.lista.visual_azul_suave .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
 .lista.visual_azul_suave .item_simples>.local_do_texto_do_item>a{
   color: #0028C8;
   text-decoration: none;
@@ -953,7 +1007,12 @@
 .lista.visual_azul_destaque .item_simples:first-child{
   padding: 7px 11px;
 }
-.lista.visual_azul_destaque .item_simples:hover{
+.lista.visual_azul_destaque .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
+.lista.visual_azul_destaque .item_simples:hover,
+.lista.visual_azul_destaque .mensagem_de_lista_vazia:hover{
   background-color: #D0D0F0;
 }
 .lista.visual_azul_destaque .item_simples>.local_do_texto_do_item>a{
@@ -1033,7 +1092,12 @@
 .lista.visual_purpura_destaque .item_simples:first-child{
   padding: 7px 11px;
 }
-.lista.visual_purpura_destaque .item_simples:hover{
+.lista.visual_purpura_destaque .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #FFF;
+}
+.lista.visual_purpura_destaque .item_simples:hover,
+.lista.visual_purpura_destaque .mensagem_de_lista_vazia:hover{
   background-color: #F6DDF6;
 }
 .lista.visual_purpura_destaque .item_simples>.local_do_texto_do_item>a{
@@ -1119,7 +1183,13 @@
 .lista.visual_escuro .item_simples:first-child{
   padding: 7px 11px;
 }
-.lista.visual_escuro .item_simples:hover{
+.lista.visual_escuro .mensagem_de_lista_vazia{
+  padding: 7px 11px;
+  background-color: #262626;
+  color: #FFF;
+}
+.lista.visual_escuro .item_simples:hover,
+.lista.visual_escuro .mensagem_de_lista_vazia:hover{
   background-color: #FFF;
   color: #000;
 }

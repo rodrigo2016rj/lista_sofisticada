@@ -1,3 +1,4 @@
+import {__} from "@wordpress/i18n";
 import {useBlockProps} from "@wordpress/block-editor";
 import {Icon} from "@wordpress/components";
 import {caption, page} from "@wordpress/icons";
@@ -49,6 +50,13 @@ export default function save({className, attributes: attr, setAttributes}){
     );
     
     const elementos_react_do_conteudo = Array();
+    if(lista.conteudo.itens.length === 0){
+      elementos_react_do_conteudo.push(
+        <div className="mensagem_de_lista_vazia">
+          <span>{__("Esta lista está vazia", "lista-sofisticada")}</span>
+        </div>
+      );
+    }
     for(let i = 0; i < lista.conteudo.itens.length; i++){
       const item = lista.conteudo.itens[i];
       if("titulo" in item){
@@ -56,7 +64,6 @@ export default function save({className, attributes: attr, setAttributes}){
         elementos_react_do_conteudo.push(processamento_de_listas(item, aninhamento));
       }else if("texto" in item){
         //O item é um item simples
-        
         let texto_do_item = item.texto;
         let url_do_link_do_texto = null;
         var posicao_do_abre_chaves = texto_do_item.indexOf("{");
