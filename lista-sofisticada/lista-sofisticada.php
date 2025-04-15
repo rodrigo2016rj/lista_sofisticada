@@ -4,7 +4,7 @@
  * Description:       Faz um bloco de lista sofisticada no qual pode-se colocar outras listas dentro.
  * Requires at least: 6.6
  * Requires PHP:      8.3
- * Version:           2025.5
+ * Version:           2025.6
  * Author:            Rodrigo Diniz da Silva
  * Copyright:         2024
  * License:           GPL-2.0

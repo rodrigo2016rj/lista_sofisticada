@@ -22,15 +22,11 @@ export default function Edit({className, attributes: attr, setAttributes, client
     }
   };
   
-  if("titulo" in attr.lista === false){
-    //Para definir que o bloco inteiro será removido basta remover o título da lista maior.
-    return null;
-  }
-  
   const obter_id_root = useSelect("core/block-editor").getBlockRootClientId;
   const obter_posicao_do_bloco = useSelect("core/block-editor").getBlockIndex;
   const obter_blocos = useSelect("core/block-editor").getBlocks;
   const mover_bloco = useDispatch("core/block-editor").moveBlockToPosition;
+  const remover_bloco = useDispatch("core/block-editor").removeBlock;
   
   let lista_superior = null;
   let posicao_na_lista_superior = null;
@@ -99,9 +95,9 @@ export default function Edit({className, attributes: attr, setAttributes, client
                 <TextControl value={item.texto} 
                              onChange={(valor) => editar(item, valor)}/>
               </div>
-              <div className="opcao_remover" title="Remover texto">
-                <Icon icon={cancelCircleFilled} 
-                      onClick={() => mostrar_menu_remocao(item.opcao_de_remocao)}/>
+              <div className="opcao_remover" title="Remover texto"
+                   onClick={() => mostrar_menu_remocao(item.opcao_de_remocao)}>
+                <Icon icon={cancelCircleFilled}/>
               </div>
               {menu_remocao(lista, posicao, item.opcao_de_remocao.mostrar_menu_remocao)}
             </div>
@@ -125,13 +121,13 @@ export default function Edit({className, attributes: attr, setAttributes, client
   function opcoes_mover(lista, posicao){
     return(
       <div className="opcoes_mover">
-        <div className="opcao_mover_para_cima" title="Mover para cima">
-          <Icon icon={chevronUp} 
-                onClick={() => mover(lista, posicao, "cima")}/>
+        <div className="opcao_mover_para_cima" title="Mover para cima"
+             onClick={() => mover(lista, posicao, "cima")}>
+          <Icon icon={chevronUp}/>
         </div>
-        <div className="opcao_mover_para_baixo" title="Mover para baixo">
-          <Icon icon={chevronDown} 
-                onClick={() => mover(lista, posicao, "baixo")}/>
+        <div className="opcao_mover_para_baixo" title="Mover para baixo"
+             onClick={() => mover(lista, posicao, "baixo")}>
+          <Icon icon={chevronDown}/>
         </div>
       </div>
     );
@@ -215,8 +211,7 @@ export default function Edit({className, attributes: attr, setAttributes, client
     if(lista !== null){
       lista.conteudo.itens.splice(posicao, 2);
     }else{
-      //Para indicar que o bloco inteiro será removido.
-      attr.lista = {};
+      remover_bloco(clientId, obter_id_root(clientId));
     }
     
     setAttributes({

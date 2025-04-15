@@ -2,8 +2,8 @@
 Contributors:      rodrigo2016rj
 Donate link:       https://www.paypal.com/donate/?hosted_button_id=C8W4VN5MCP77U
 Tags:              list, links, best, detailed, nested
-Tested up to:      6.7
-Stable tag:        2025.5
+Tested up to:      6.8
+Stable tag:        2025.6
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
