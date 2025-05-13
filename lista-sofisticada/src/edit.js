@@ -1,7 +1,7 @@
 import {__} from "@wordpress/i18n";
 import {useSelect, useDispatch} from "@wordpress/data";
 import {useBlockProps} from "@wordpress/block-editor";
-import {Icon, TextControl} from "@wordpress/components";
+import {Icon, TextControl, TextareaControl} from "@wordpress/components";
 import {plusCircle, cancelCircleFilled, chevronUp, chevronDown} from "@wordpress/icons";
 import "./editor.scss";
 
@@ -15,7 +15,8 @@ export default function Edit({className, attributes: attr, setAttributes, client
       mostrar_menu_remocao: false
     },
     opcao_de_adicao: {
-      mostrar_menu_adicao: false
+      mostrar_menu_adicao: false,
+      texto_dos_itens: ""
     },
     conteudo: {
       itens: Array()
@@ -41,7 +42,7 @@ export default function Edit({className, attributes: attr, setAttributes, client
         {opcoes_mover(lista_superior, posicao_na_lista_superior)}
         <div className="local_do_titulo_da_lista">
           <TextControl value={lista.titulo.texto} 
-                       onChange={(valor) => editar(lista.titulo, valor)}/>
+                       onChange={(valor) => editar_entrada_de_texto(lista.titulo, valor)}/>
         </div>
         <div className="opcao_remover" title="Remover lista"
              onClick={() => mostrar_menu_remocao(lista.opcao_de_remocao)}>
@@ -54,10 +55,10 @@ export default function Edit({className, attributes: attr, setAttributes, client
     //A posição antes do conteudo_da_lista vale -1.
     elementos_react.push(
       <div className="opcao_adicionar_item">
-        <div className="icone_e_texto_da_opcao" title="Adicionar item" 
+        <div className="icone_e_texto_da_opcao" title="Adicionar" 
              onClick={() => mostrar_menu_adicao(lista.opcao_de_adicao)}>
           <Icon icon={plusCircle}/>
-          <span>Adicione um item</span>
+          <span>Adicione itens</span>
         </div>
         {menu_adicao(lista, -1, lista.opcao_de_adicao.mostrar_menu_adicao)}
       </div>
@@ -77,10 +78,10 @@ export default function Edit({className, attributes: attr, setAttributes, client
         //O item é uma opção de adição
         elementos_react_do_conteudo.push(
           <div className="opcao_adicionar_item">
-            <div className="icone_e_texto_da_opcao" title="Adicionar item" 
+            <div className="icone_e_texto_da_opcao" title="Adicionar" 
                  onClick={() => mostrar_menu_adicao(item)}>
               <Icon icon={plusCircle}/>
-              <span>Adicione um item</span>
+              <span>Adicione itens</span>
             </div>
             {menu_adicao(lista, posicao, item.mostrar_menu_adicao)}
           </div>
@@ -93,7 +94,7 @@ export default function Edit({className, attributes: attr, setAttributes, client
               {opcoes_mover(lista, posicao)}
               <div className="local_do_texto_do_item">
                 <TextControl value={item.texto} 
-                             onChange={(valor) => editar(item, valor)}/>
+                             onChange={(valor) => editar_entrada_de_texto(item, valor)}/>
               </div>
               <div className="opcao_remover" title="Remover texto"
                    onClick={() => mostrar_menu_remocao(item.opcao_de_remocao)}>
@@ -174,7 +175,7 @@ export default function Edit({className, attributes: attr, setAttributes, client
     });
   };
   
-  const editar = (objeto, valor) => {
+  const editar_entrada_de_texto = (objeto, valor) => {
     objeto.texto = valor;
     
     setAttributes({
@@ -232,7 +233,7 @@ export default function Edit({className, attributes: attr, setAttributes, client
   };
   
   const mostrar_menu_adicao = (objeto) => {
-    objeto.mostrar_menu_adicao = true;
+    objeto.mostrar_menu_adicao = "Opções de adição";
     
     setAttributes({
       lista: Object.assign({}, attr.lista)
@@ -240,25 +241,58 @@ export default function Edit({className, attributes: attr, setAttributes, client
   };
   
   function menu_adicao(lista, posicao, mostrar){
-    if(mostrar){
-      return(
-        <div className="menu_adicao">
-          <span className="pergunta_da_adicao">Qual pretende inserir, lista ou texto?</span>
-          <div className="botoes_da_adicao">
-            <button className="botao_adicionar_lista" title="Adicionar lista" 
-                    onClick={() => adicionar_lista(lista, posicao)}>Lista</button>
-            <button className="botao_adicionar_item_simples" title="Adicionar texto" 
-                    onClick={() => adicionar_item_simples(lista, posicao)}>Texto</button>
-            <button className="botao_cancelar_adicao" title="Cancelar" 
-                    onClick={() => cancelar_adicao(lista, posicao)}>Cancelar</button>
+    switch(mostrar){
+      case "Opções de adição":
+        return(
+          <div className="menu_adicao">
+            <span className="pergunta_da_adicao">Adicionar lista, item ou itens?</span>
+            <div className="botoes_da_adicao">
+              <button className="botao_adicionar_lista" title="Adicionar lista" 
+                      onClick={() => adicionar_lista(lista, posicao)}>Lista</button>
+              <button className="botao_adicionar_item_simples" title="Adicionar item" 
+                      onClick={() => adicionar_item_simples(lista, posicao)}>Item</button>
+              <button className="botao_adicionar_itens_simples" title="Adicionar itens" 
+                      onClick={() => adicionar_itens_simples(lista, posicao)}>Itens</button>
+              <button className="botao_cancelar_adicao" title="Cancelar" 
+                      onClick={() => cancelar_adicao(lista, posicao)}>Cancelar</button>
+            </div>
           </div>
-        </div>
-      );
-    }else{
-      return null;
+        );
+      break;
+      case "Área de texto para vários itens":
+        return(
+          <div className="menu_adicao_de_itens">
+            <span className="pergunta_da_adicao_de_itens">Separe cada item por quebra de linha</span>
+            <div className="area_de_texto_da_adicao_de_itens">
+              {area_de_texto(lista, posicao)}
+            </div>
+            <div className="botoes_da_adicao_de_itens">
+              <button className="botao_confirmar_adicao_de_itens_simples" title="Adicionar itens" 
+                      onClick={() => confirmar_adicao_de_itens_simples(lista, posicao)}>Adicionar</button>
+              <button className="botao_cancelar_adicao_de_itens_simples" title="Cancelar" 
+                      onClick={() => cancelar_adicao_de_itens_simples(lista, posicao)}>Cancelar</button>
+            </div>
+          </div>
+        );
+      break;
+      default:
+        return null;
+      break;
     }
   }
   
+  function area_de_texto(lista, posicao){
+    if(posicao === -1){
+      return(
+        <TextareaControl value={lista.opcao_de_adicao.texto_dos_itens} 
+                         onChange={(valor) => editar_area_de_texto(lista.opcao_de_adicao, valor)}/>
+      );
+    }
+    return(
+      <TextareaControl value={lista.conteudo.itens[posicao].texto_dos_itens} 
+                       onChange={(valor) => editar_area_de_texto(lista.conteudo.itens[posicao], valor)}/>
+    );
+  }
   const adicionar_lista = (lista, posicao) => {
     const item_lista = {
       titulo: {
@@ -268,7 +302,8 @@ export default function Edit({className, attributes: attr, setAttributes, client
         mostrar_menu_remocao: false
       },
       opcao_de_adicao: {
-        mostrar_menu_adicao: false
+        mostrar_menu_adicao: false,
+        texto_dos_itens: ""
       },
       conteudo: {
         itens: Array()
@@ -277,14 +312,17 @@ export default function Edit({className, attributes: attr, setAttributes, client
     lista.conteudo.itens.splice(posicao+1, 0, item_lista);
     
     const item_opcao_de_adicao = {
-      mostrar_menu_adicao: false
+      mostrar_menu_adicao: false,
+      texto_dos_itens: ""
     };
     lista.conteudo.itens.splice(posicao+2, 0, item_opcao_de_adicao);
     
     if(posicao === -1){
       lista.opcao_de_adicao.mostrar_menu_adicao = false;
+      lista.opcao_de_adicao.texto_dos_itens = "";
     }else{
       lista.conteudo.itens[posicao].mostrar_menu_adicao = false;
+      lista.conteudo.itens[posicao].texto_dos_itens = "";
     }
     
     setAttributes({
@@ -302,14 +340,31 @@ export default function Edit({className, attributes: attr, setAttributes, client
     lista.conteudo.itens.splice(posicao+1, 0, item_simples);
     
     const item_opcao_de_adicao = {
-      mostrar_menu_adicao: false
+      mostrar_menu_adicao: false,
+      texto_dos_itens: ""
     };
     lista.conteudo.itens.splice(posicao+2, 0, item_opcao_de_adicao);
     
     if(posicao === -1){
       lista.opcao_de_adicao.mostrar_menu_adicao = false;
+      lista.opcao_de_adicao.texto_dos_itens = "";
     }else{
       lista.conteudo.itens[posicao].mostrar_menu_adicao = false;
+      lista.conteudo.itens[posicao].texto_dos_itens = "";
+    }
+    
+    setAttributes({
+      lista: Object.assign({}, attr.lista)
+    });
+  };
+  
+  const adicionar_itens_simples = (lista, posicao) => {
+    if(posicao === -1){
+      lista.opcao_de_adicao.mostrar_menu_adicao = "Área de texto para vários itens";
+      lista.opcao_de_adicao.texto_dos_itens = "";
+    }else{
+      lista.conteudo.itens[posicao].mostrar_menu_adicao = "Área de texto para vários itens";
+      lista.conteudo.itens[posicao].texto_dos_itens = "";
     }
     
     setAttributes({
@@ -320,8 +375,74 @@ export default function Edit({className, attributes: attr, setAttributes, client
   const cancelar_adicao = (lista, posicao) => {
     if(posicao === -1){
       lista.opcao_de_adicao.mostrar_menu_adicao = false;
+      lista.opcao_de_adicao.texto_dos_itens = "";
     }else{
       lista.conteudo.itens[posicao].mostrar_menu_adicao = false;
+      lista.conteudo.itens[posicao].texto_dos_itens = "";
+    }
+    
+    setAttributes({
+      lista: Object.assign({}, attr.lista)
+    });
+  };
+  
+  const editar_area_de_texto = (objeto, valor) => {
+    objeto.texto_dos_itens = valor;
+    
+    setAttributes({
+      lista: Object.assign({}, attr.lista)
+    });
+  };
+  
+  const confirmar_adicao_de_itens_simples = (lista, posicao) => {
+    let texto_dos_itens = "";
+    if(posicao === -1){
+      texto_dos_itens = lista.opcao_de_adicao.texto_dos_itens.replace(/\r/g, "");
+    }else{
+      texto_dos_itens = lista.conteudo.itens[posicao].texto_dos_itens.replace(/\r/g, "");
+    }
+    
+    const array_itens = texto_dos_itens.split(/\n/);
+    
+    let contador = 1;
+    for(let i = 0; i < array_itens.length; i++){
+      const item_simples = {
+        texto: array_itens[i],
+        opcao_de_remocao: {
+          mostrar_menu_remocao: false
+        }
+      };
+      lista.conteudo.itens.splice(posicao+contador, 0, item_simples);
+      contador++;
+      
+      const item_opcao_de_adicao = {
+        mostrar_menu_adicao: false,
+        texto_dos_itens: ""
+      };
+      lista.conteudo.itens.splice(posicao+contador, 0, item_opcao_de_adicao);
+      contador++;
+      
+      if(posicao === -1){
+        lista.opcao_de_adicao.mostrar_menu_adicao = false;
+        lista.opcao_de_adicao.texto_dos_itens = "";
+      }else{
+        lista.conteudo.itens[posicao].mostrar_menu_adicao = false;
+        lista.conteudo.itens[posicao].texto_dos_itens = "";
+      }
+    }
+    
+    setAttributes({
+      lista: Object.assign({}, attr.lista)
+    });
+  };
+  
+  const cancelar_adicao_de_itens_simples = (lista, posicao) => {
+    if(posicao === -1){
+      lista.opcao_de_adicao.mostrar_menu_adicao = "Opções de adição";
+      lista.opcao_de_adicao.texto_dos_itens = "";
+    }else{
+      lista.conteudo.itens[posicao].mostrar_menu_adicao = "Opções de adição";
+      lista.conteudo.itens[posicao].texto_dos_itens = "";
     }
     
     setAttributes({

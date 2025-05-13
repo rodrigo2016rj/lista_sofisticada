@@ -129,9 +129,8 @@
 .lista_editavel .opcao_adicionar_item>.icone_e_texto_da_opcao>svg{
   position: relative;
   top: -1px;
-  //filter: invert(1) brightness(0.65) sepia(1) hue-rotate(20deg) saturate(3.2) invert(1); //Mais próximo de #2020D0
-  filter: invert(1) brightness(0.55) sepia(1) hue-rotate(22deg) saturate(3) invert(1);
-  //Mais harmonioso com #2020D0
+  //filter: invert(1) brightness(0.65) sepia(1) hue-rotate(20deg) saturate(3.2) invert(1); /* Mais próximo de #2020D0 */
+  filter: invert(1) brightness(0.55) sepia(1) hue-rotate(22deg) saturate(3) invert(1); /* Mais harmonioso com #2020D0 */
 }
 .lista_editavel .menu_adicao{
   margin-bottom: 9px;
@@ -139,8 +138,8 @@
   margin-left: auto;
   border: 1px solid blue;
   padding: 14px;
-  min-width: calc(400px - 2px - 28px);
-  max-width: calc(400px - 2px - 28px);
+  width: calc(400px - 2px - 28px);
+  max-width: calc(100% - 2px - 28px);
   background-color: #FFF;
   color: black;
   text-align: center;
@@ -160,7 +159,43 @@
   margin-left: 20px;
   font-size: 13pt;
 }
+.lista_editavel .botao_adicionar_itens_simples{
+  margin-left: 20px;
+  font-size: 13pt;
+}
 .lista_editavel .botao_cancelar_adicao{
+  margin-left: 20px;
+  font-size: 13pt;
+}
+.lista_editavel .menu_adicao_de_itens{
+  margin-bottom: 9px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid blue;
+  padding: 14px;
+  width: calc(550px - 2px - 28px);
+  max-width: calc(100% - 2px - 28px);
+  background-color: #FFF;
+  color: black;
+  text-align: center;
+  z-index: 9999;
+}
+.lista_editavel .pergunta_da_adicao_de_itens{
+  font-size: 16pt;
+}
+.lista_editavel .area_de_texto_da_adicao_de_itens{
+  min-width: 100%;
+  max-width: 100%;
+  text-align: left;
+}
+.lista_editavel .botoes_da_adicao_de_itens{
+  margin-top: 30px;
+  text-align: center;
+}
+.lista_editavel .botao_confirmar_adicao_de_itens_simples{
+  font-size: 13pt;
+}
+.lista_editavel .botao_cancelar_adicao_de_itens_simples{
   margin-left: 20px;
   font-size: 13pt;
 }
@@ -176,4 +211,11 @@
 /* Melhorando estilos do WordPress */
 .lista_editavel .components-text-control__input{
   font-size: 12pt !important;
+}
+.lista_editavel .components-textarea-control__input{
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 180px;
+  font-size: 12pt !important;
+  text-align: left;
 }
