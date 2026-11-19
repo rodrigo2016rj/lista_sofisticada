@@ -21,6 +21,14 @@ export default function save({className, attributes: attr, setAttributes}){
     }
     
     let titulo_da_lista = lista.titulo.texto;
+    let url_da_imagem_do_titulo = null;
+    var posicao_do_abre_colchetes = titulo_da_lista.indexOf("[");
+    var posicao_do_fecha_colchetes = titulo_da_lista.indexOf("]");
+    if(posicao_do_abre_colchetes == 0 && posicao_do_fecha_colchetes != -1 
+       && posicao_do_abre_colchetes < posicao_do_fecha_colchetes){
+      url_da_imagem_do_titulo = titulo_da_lista.substring(posicao_do_abre_colchetes+1, posicao_do_fecha_colchetes);
+      titulo_da_lista = titulo_da_lista.substring(posicao_do_fecha_colchetes+1, titulo_da_lista.length);
+    }
     let url_do_link_do_titulo = null;
     var posicao_do_abre_chaves = titulo_da_lista.indexOf("{");
     var posicao_do_fecha_chaves = titulo_da_lista.indexOf("}");
@@ -33,6 +41,10 @@ export default function save({className, attributes: attr, setAttributes}){
     let html_do_titulo_da_lista = <span>{titulo_da_lista}</span>;
     if(url_do_link_do_titulo !== null && url_do_link_do_titulo !== ""){
       html_do_titulo_da_lista = <a href={url_do_link_do_titulo}>{titulo_da_lista}</a>;
+    }
+    if(url_da_imagem_do_titulo !== null && url_da_imagem_do_titulo !== ""){
+      var html_da_tag_img = <img className="icone_da_lista_sofisticada" src={url_da_imagem_do_titulo} alt="[Icon] " />;
+      html_do_titulo_da_lista = <>{html_da_tag_img}{html_do_titulo_da_lista}</>;
     }
     
     elementos_react.push(
@@ -65,6 +77,14 @@ export default function save({className, attributes: attr, setAttributes}){
       }else if("texto" in item){
         //O item é um item simples
         let texto_do_item = item.texto;
+        let url_da_imagem_do_item = null;
+        var posicao_do_abre_colchetes = texto_do_item.indexOf("[");
+        var posicao_do_fecha_colchetes = texto_do_item.indexOf("]");
+        if(posicao_do_abre_colchetes == 0 && posicao_do_fecha_colchetes != -1 
+           && posicao_do_abre_colchetes < posicao_do_fecha_colchetes){
+          url_da_imagem_do_item = texto_do_item.substring(posicao_do_abre_colchetes+1, posicao_do_fecha_colchetes);
+          texto_do_item = texto_do_item.substring(posicao_do_fecha_colchetes+1, texto_do_item.length);
+        }
         let url_do_link_do_texto = null;
         var posicao_do_abre_chaves = texto_do_item.indexOf("{");
         var posicao_do_fecha_chaves = texto_do_item.indexOf("}");
@@ -77,6 +97,10 @@ export default function save({className, attributes: attr, setAttributes}){
         let html_do_texto_do_item = <span>{texto_do_item}</span>;
         if(url_do_link_do_texto !== null && url_do_link_do_texto !== ""){
           html_do_texto_do_item = <a href={url_do_link_do_texto}>{texto_do_item}</a>;
+        }
+        if(url_da_imagem_do_item !== null && url_da_imagem_do_item !== ""){
+          var html_da_tag_img = <img className="icone_da_lista_sofisticada" src={url_da_imagem_do_item} alt="[Icon] " />;
+          html_do_texto_do_item = <>{html_da_tag_img}{html_do_texto_do_item}</>;
         }
         
         elementos_react_do_conteudo.push(

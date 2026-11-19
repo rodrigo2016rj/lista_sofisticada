@@ -7,6 +7,7 @@
 Título da lista;<br/>
 Itens de texto;<br/>
 Listas internas;<br/>
+Ícones;<br/>
 Links.</p>
 
 <p>Há vários layouts disponíveis que podem ser escolhidos pelo menu "Opções do Plugin Lista Sofisticada".<br/>
