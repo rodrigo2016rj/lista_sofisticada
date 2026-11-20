@@ -8,5 +8,18 @@ License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
 Crie listas com: título, itens, listas internas, ícones e links.
-Acrescentando [URL_da_Imagem] antes do texto, fará com que o item ou o título apresente um ícone antes do texto.
-Acrescentando {URL} após o texto, fará com que o item ou o título se transforme em um link.
+
+== Description ==
+
+Crie listas personalizadas com:
+
+* Título
+* Itens
+* Listas internas
+* Ícones
+* Links
+
+**Dicas:**
+
+1. Acrescentando [`URL_da_Imagem`] antes do texto, fará com que o item ou o título apresente um ícone antes do texto.
+2. Acrescentando {`URL_do_Link`} após o texto, fará com que o item ou o título se transforme em um link.
